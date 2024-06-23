@@ -43,10 +43,25 @@ long long chinese_remainder_theorem(const std::vector<long long>& a, const std::
 }
 
 int main() {
-    std::vector<long long> a = {2, 3, 1}; // Remainders
-    std::vector<long long> n = {31, 5, 77}; // Moduli
     
-
+    int m,ai,ni;
+    std::cout<<"Enter the number of equations: ";
+    std::cin>>m;
+    
+    std::vector<long long> a;// Remainders
+    std::vector<long long> n; // Moduli
+    
+    std::cout<<"Suppose each equation is represented as x=a(mod n). Enter a and n as a pair separated by space. Then press enter to enter the pair for the next equation\n";
+    for(int i=0;i<m;i++)
+    {std::cout<<"a_"<<i+1<<":";
+        std::cin>>ai;
+        std::cout<<"n_"<<i+1<<":";
+        std::cin>>ni;
+        a.push_back(ai);
+        n.push_back(ni);
+    }
+    
+    
     try {
         long long result = chinese_remainder_theorem(a, n);
         std::cout << "The solution is: " << result << std::endl;
